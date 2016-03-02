@@ -1,0 +1,22 @@
+{
+  "name": "eslint-todo",
+  "version": "0.0.0",
+  "description": "Progressive eslint enabler.",
+  "main": "src/index.js",
+  "bin": "bin/index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "author": "Gary Borton <gdborton@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^1.1.1",
+    "glob": "^7.0.0",
+    "json5": "^0.4.0",
+    "meow": "^3.7.0"
+  },
+  "devDependencies": {
+    "ava": "^0.12.0",
+    "sinon": "^1.17.3"
+  }
+}
