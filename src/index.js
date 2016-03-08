@@ -61,7 +61,7 @@ function getBrokenRuleIdsFor(entry) {
     return message.severity === 2;
   }).map(function(message) {
     return message.ruleId;
-  });
+  }).sort();
 }
 
 function getPathFor(entry) {

@@ -24,6 +24,9 @@ const eslintEntries = [
     messages: [{
       ruleId: 'fakeRuleId',
       severity: 2
+    }, {
+      ruleId: 'astartswithasothaticantestalphabeticalsort',
+      severity: 2
     }],
     errorCount: 1
   },
@@ -114,7 +117,7 @@ test('.destroyNestedConfigs should call removeRulesFromFile for each found eslin
 
 test('.getBrokenRuleIdsFor should return ruleIds for any messages with severity 2.', t => {
   const result = eslintTodo.getBrokenRuleIdsFor(eslintEntries[0]);
-  t.same(result, ['fakeRuleId']);
+  t.same(result, ['astartswithasothaticantestalphabeticalsort', 'fakeRuleId']);
 });
 
 test('.createExceptions should attempt to write rules to a given file, extending if needed.', t => {
@@ -141,7 +144,10 @@ test('.processOutput should get the broken rules for each entry then create thei
     }
   });
 
-  sinon.assert.calledWith(createExceptionsStub, 'makefakefilepath/.eslintrc', { fakeRuleId: 0 });
+  sinon.assert.calledWith(createExceptionsStub, 'makefakefilepath/.eslintrc', {
+    astartswithasothaticantestalphabeticalsort: 0,
+    fakeRuleId: 0
+  });
   sinon.assert.neverCalledWith(createExceptionsStub, 'onlywarning/.eslintrc');
   sinon.assert.calledWith(createExceptionsStub, 'samepath/different/.eslintrc', {
     rule1: 0,
